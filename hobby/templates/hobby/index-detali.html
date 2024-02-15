@@ -1,0 +1,101 @@
+{% extends 'hobby/index-base.html' %}
+{% load static %}
+
+{% block title %}{{ hobby.name }}{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'hobby/style.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div id="main">
+            <div id="content" class="contener-left">
+
+                <div class="projects" align="center">
+                    <h1><span class="badge bg-secondary">{{ hobby.name }}</span></h1>
+                    {#                <h1 align="center">{{ hobby.name }}</h1>#}
+                    <p align="center"><img src="{{ hobby.img.url }}" alt="" width="400px" height="400px"/></p>
+                    <!-- Vertically centered modal -->
+                    <div class="modal-dialog modal-dialog-centered">
+                        ...
+                    </div>
+
+                    <div class="text-left">
+                        <h4></h4>
+                        <h4>Название композиции:</h4>
+                        <p> {{ hobby.name }} </p>
+                        <h4>Описание:</h4>
+                        <p> {{ hobby.description }} </p>
+                        <h4>Стоимость:</h4>
+{#                        <p>{{ hobby.price }} руб.</p>#}
+                        <p class="price">{{ hobby.price }} руб.</p>
+                        <form action="{% url "cart:cart_add" hobby.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <input class="btn btn-outline-danger" type="submit" value="Добавить в корзину">
+
+                        </form>
+                        <h4>Дата размещения:</h4>
+                        <p>{{ hobby.date }}</p>
+                    </div>
+                    <div class="cl">&nbsp;</div>
+                    {#					</div>#}
+
+                </div>
+            </div>
+            <div class="form-like">
+                <br>
+                <p>Понравилось: {{ hobby.likes_set.all.count }}</p>
+                <br>
+                <a href="{% url 'add_likes' hobby.id %}">Нравится <i class="fa-regular fa-thumbs-up"
+                                                                     style="color: #fa1505;"></i></a>
+                <a href="{% url 'del_likes' hobby.id %}">Не нравится <i class="fa-solid fa-thumbs-down"
+                                                                        style="color: #fa1505;"></i></a>
+                <br>
+                <br>
+            </div>
+            <div class="form-comment">
+                <h3>Оставить коментарий</h3>
+                <div>
+                    <form action="{% url 'add_comments' hobby.id %}" method="post">
+                        {% csrf_token %}
+                        <div>
+                            <label>Ваш коментарий</label>
+                            <textarea name="text_comments" cols="30" rows="10"></textarea>
+                        </div>
+                        <div>
+                            <label for="">Ваше имя</label>
+                            <input type="text" name="name">
+                        </div>
+                        <div>
+                            <label for="">Ваше Email</label>
+                            <input type="email" name="email">
+                        </div>
+                        <div class="form-comment-input">
+                            {#                            <h5><input type="submit"></h5>#}
+                            {#                            <button type="submit" class="btn">Отправить</button>#}
+                            <p><input class="btn btn-secondary type="submit" value="Отправить"></p>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="view-comment">
+            {% for comment in hobby.comments_set.all %}
+                <div>
+                    <h4>{{ comment.name }}: </h4>
+                    <p>{{ comment.text_comments }}</p>
+
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="cl">&nbsp;</div>
+    </div>
+{% endblock %}

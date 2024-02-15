@@ -1,0 +1,44 @@
+{% extends "hobby/index-base.html" %}
+
+{% block title %}Document{% endblock %}
+
+
+{% block content %}
+    <section class="main-content">
+        <div class="container"> {# создание блока контекста #}
+            <div class="row"> {# создание строки сетки #}
+                   {% for hobby in hobbys %}
+{#                       {% if hobby.catalog_new_id == 2 %}#}
+                           <div class="col-lg-4 col-sm-6 mb-3">
+                               {# col-lg-4(используем 4 часть из 12 частей столбцов, т.е 3 столбца при большом разрешении, col-sm-6(будет 2 столбца из 12 при разрешении sm )#}
+                               <div class="product-card">
+                                   <div class="product-thumb">
+                                       <a href="{{ hobby.get_url_working_hobby }}"><img src="{{ hobby.img.url }}"
+                                                                                        alt=""></a>
+                                   </div>
+                                   <div class="product-detail">
+                                       <h4><a href="{{ hobby.get_url_working_hobby }}">{{ hobby.name }}</a></h4>
+                                       <p>{{ hobby.description }}</p>
+                                       <div class="product-bottom-details d-flex justify-content-between">
+                                           <div class="product-price">
+{#                                               <small>{{ hobby.price|add:39.99 }} руб.</small> {{ hobby.price }} руб.#}
+                                                {{ hobby.price }} руб.
+                                           </div>
+                                           <div class="product-links">
+                                               <a href="#"><i class="fa-solid fa-cart-plus"></i></a>
+                                               <a href="#"><i class="fa-regular fa-heart"></i></a>
+                                           </div>
+                                       </div>
+
+                                   </div>
+                               </div>
+                           </div>
+{#                       {% endif %}#}
+
+
+                    {% endfor %}
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

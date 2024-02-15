@@ -1,0 +1,76 @@
+{% extends 'hobby/base.html' %}
+{% block title %}{{ hobby.name }}{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <div id="content" class="left">
+
+            <div class="projects">
+                <h3>{{ hobby.name }}</h3>
+                <p align="center"><img src="{{ hobby.img.url }}" alt="" width="200px" height="200px"/></p>
+                {#					<div class="item">#}
+                {#						<div class="image left">#}
+                {#							<a href="#"><img src="{{ myblock.img.url }}" alt="" width="200px" /></a>#}
+                {#						</div>#}
+                <div class="text left">
+                    <h4></h4>
+                    <p><h4>Название композиции:</h4> {{ hobby.name }} </p>
+                    <p><h4>Описание:</h4> {{ hobby.description }} </p>
+                    <p><h4>Стоимость:</h4> {{ hobby.price }} </p>
+                    <p>Дата размещения: {{ hobby.date }}</p>
+                </div>
+                <div class="cl">&nbsp;</div>
+                {#					</div>#}
+
+            </div>
+        </div>
+        <div class="form-like">
+            <br>
+            <p>Понравилось: {{ hobby.likes_set.all.count }}</p>
+            <br>
+            <a href="{% url 'add_likes' hobby.id %}">Нравится</a>
+            <a href="{% url 'del_likes' hobby.id %}">Не нравится</a>
+            <br>
+            <br>
+        </div>
+        <div class="form-comment">
+            <h3>Оставить коментарий</h3>
+            <div>
+                <form action="{% url 'add_comments' hobby.id %}" method="post">
+                    {% csrf_token %}
+                    <div>
+                        <label>Ваш коментарий</label>
+                        <textarea name="text_comments" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <label for="">Ваше имя</label>
+                        <input type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="">Ваше Email</label>
+                        <input type="email" name="email">
+                    </div>
+                    <div>
+                        <input type="submit">
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <div>
+            {% for comment in hobby.comments_set.all %}
+                <div class="view-comment">
+                    <h4>{{ comment.name }}</h4>
+
+                    <p>{{ comment.text_comments }}</p>
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="cl">&nbsp;</div>
+    </div>
+
+{% endblock %}

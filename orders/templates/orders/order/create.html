@@ -1,0 +1,51 @@
+{% extends "hobby/index-base.html" %}
+
+{% block title %}Проверка заказа{% endblock %}
+
+{% block content %}
+    <section class="checkout_order">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center text-success text-uppercase fw-bold mb-5 mt-5">
+                        <h1>Проверяем заказ:</h1>
+                    </div>
+                    <div class="order-info ">
+                        <div class="text-decoration-underline fw-bolder text-success">
+                            <h2>Ваши покупки:</h2>
+                        </div>
+
+                        <div class="order-detail text-info bg-dark">
+                            <ul>
+                                {% for item in cart %}
+                                    <li>
+                                        {{ item.quantity }} шт. x {{ item.product.name }} по {{ item.price }} руб. итого:
+                                        <span>{{ item.total_price }} руб.</span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class=" fw-bolder text-warning bg-dark">
+                            <p>Всего к оплате: {{ cart.get_total_price }} руб.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="requisites">
+        <div class="container">
+            <div class="row fw-semibold fs-4">
+                <div class="col-12">
+                    <form action="." method="post" class="order-form">
+                        {{ form.as_p }}
+                        <p><input class="btn btn-outline-success" type="submit" value="Оформить заказ"></p>
+                        {% csrf_token %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

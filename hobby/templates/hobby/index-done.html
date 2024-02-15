@@ -1,0 +1,16 @@
+{% extends 'hobby/index-base.html' %}
+{% load static %}
+{% block title %}{{ hobby.name }}{% endblock %}
+
+{% block link %}
+    <link rel="stylesheet" href="{% static 'hobby/style.css' %}" type="text/css" media="all">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="from-obrabotka">
+        <h1 align="center">Ваш коментарий обработан</h1>
+    </div>
+
+
+{% endblock %}

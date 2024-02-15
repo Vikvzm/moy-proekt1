@@ -1,0 +1,183 @@
+* { margin: 0; padding: 0; outline:0; }
+
+body {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: Georgia, Arial, Helvetica, Sans-Serif;
+    color: #333;
+    background: url('') repeat 0 0;
+}
+
+a { color: #ff0000; text-decoration: none; cursor:pointer; }
+a:hover { text-decoration: underline; }
+
+a img { border: 0; }
+
+input, textarea, select { font-family: Arial, Helvetica, sans-serif; font-size:12px; }
+textarea { overflow:auto; }
+
+.cl { display: block; height: 0; font-size: 0; line-height: 0; text-indent: -4000px; clear: both; }
+.notext { font-size: 0; line-height: 0; text-indent: -4000px; }
+
+.left, .alignleft { float: left; display: inline; }
+.right, .alignright { float: right; display: inline; }
+
+
+.shell { width: 980px; margin: 0 auto; }
+.border { border: 1px solid #e8e8e8; background: #fff; position: relative; }
+
+
+#navigation { height: 43px; border-top: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb; }
+#navigation ul { list-style: none; }
+#navigation ul li { float: left; height: 43px; border-right: 1px solid #dbdbdb; font-size: 12px; line-height: 43px; font-weight: bold; text-transform: uppercase; }
+#navigation ul li a { float: left; height: 43px; color: #000; padding: 0 33px; }
+#navigation ul li a:hover, 
+#navigation ul li a.active { color: #ff0000; text-decoration: none; }
+
+
+#main {
+    margin: auto;
+    width: 932px;
+    padding: 37px 24px 17px 24px; }
+#main h3 { font-size: 12px; line-height: 15px; color: #000; text-transform: uppercase; border-bottom: 1px solid #dbdbdb; padding: 0 0 9px 0; }
+#main a.more:hover { text-decoration: none; }
+
+#content { width: 905px; }
+
+.highlight {  }
+.highlight h3 { margin: 0 0 9px 0; }
+.highlight p { padding: 0 0 11px 0; }
+.highlight img { margin: 4px 12px 0 12px; }
+
+.projects { padding: 10px 0 0 0; }
+.projects h1 { font-size: 50px}
+.projects h3 { margin: 0 0 17px 0; }
+.projects .item { margin: 0 0 28px 0; }
+.projects .image { width: 183px; height: 111px; border: 0px solid #dbdbdb; padding: 2px; margin: 0 20px 0 3px; }
+.projects .text { width: 600px; }
+.projects .text h4 { font-size: 12px; line-height: 15px; color: #333; text-transform: uppercase; padding: 3px 0 2px 0; }
+.projects .text p { padding: 0 0 3px 0; }
+
+.btn-buy:hover { text-decoration: none; }
+
+.advertisement { padding: 0 0 13px 0; }
+.advertisement h3 { margin: 0 0 18px 0; }
+.advertisement .ads { padding: 0 15px 0 7px; }
+.advertisement .ad { margin: 0 0 18px 0; }
+
+
+
+#footer { font-family: Arial, sans-serif; font-size: 11px; line-height: 14px; color: #7f7f7f; padding: 18px 27px 20px 38px; }
+#footer a{ color: #7f7f7f; }
+
+
+
+.form-like {
+    width: 905px;
+    padding: 20px;
+    background-color: #f8d7da;
+}
+.form-like a {
+    padding: 20px;
+    background-color: #c8c8c8;
+    margin: 10px;
+    font-size: 20px;
+    border-bottom-color: blue;
+    border-radius: 15px;
+}
+.form-like p {
+    font-size: 20px;
+    /*background-color: #cccccc;*/
+    color: red;
+}
+.from-obrabotka{
+    margin: 20px;
+}
+.text-left {
+    padding: 20px;
+    background-color: #bfd1ec;
+}
+.text-left h4 {
+    font-size: 30px;
+    background-color: #6c757d;
+    color: white;
+
+}
+.text-left p {
+    font-size: 30px;
+    font-style: italic;
+    color: #0a58ca;
+}
+/*form-comment*/
+.form-comment {
+    width: 905px;
+    padding: 20px;
+    background-color: #fff3cd;
+
+}
+.form-comment h3{
+    font-size: 20px;
+}
+.form-comment label{
+    margin: 10px 10px;
+    font-size: 15px;
+}
+.form-comment input{
+    border-radius: 10px;
+    padding: 20px;
+    height: 20px;
+    width: 250px;
+    font-size: 25px;
+}
+.form-comment-input p {
+    padding: 10px;
+    margin: 10px;
+}
+.form-comment-input button {
+    border-radius: 10px;
+    padding: 20px;
+    height: 20px;
+    width: 250px;
+    font-size: 25px;
+}
+/*.input-buten {*/
+/*    font-size: 20px;*/
+/*}*/
+.form-comment textarea{
+    border-radius: 15px;
+    padding: 15px;
+    height: 150px;
+    width: 100%;
+    resize: vertical;
+}
+.form-comment div{
+    margin: 10px;
+}
+/*form-comment*/
+
+
+.view-comment {
+    margin: auto;
+    width: 932px;
+    padding: 37px 24px 17px 24px;
+
+    /*width: 905px;*/
+    /*padding: 10px;*/
+    /*margin: 10px;*/
+    font-size: 18px;
+    border-radius: 15px;
+}
+.view-comment p {
+    background-color: ghostwhite;
+    padding: 10px;
+}
+
+/* o_nas*/
+/*.o_nas {*/
+/*    width: 905px;*/
+/*}*/
+/*.o_nas h1{*/
+/*    font-size: 30px;*/
+/*    background-color: #6c757d;*/
+/*    color: white;*/
+/*}*/

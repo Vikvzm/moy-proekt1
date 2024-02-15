@@ -1,0 +1,20 @@
+{% extends "hobby/index-base.html" %}
+
+{% block title %}Спасибо за заказ.{% endblock %}
+
+{% block content %}
+    <section class="tank-order">
+        <div class="row">
+            <div class="col-12 ">
+                <h1 class="text-center text-danger text-uppercase fw-bold mb-5 mt-5 text-decoration-underline">Спасибо за заказ</h1>
+            </div>
+        </div>
+    <div class="row">
+        <h4 class="text-center text-success text-uppercase fw-bold mb-5 mt-5">
+            Ваш заказ был успешно сделан. Номер вашего заказа: <strong>{{ order.id }}</strong>.</h4>
+    </div>
+    </section>
+
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "hobby/index-base.html" %}
+{% load static %}
+{% block title %}
+    Ваши покупки
+{% endblock %}
+{% block content %}
+    <section class="shop-cart">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center text-success text-uppercase fw-bold mb-5 mt-3"> Ваши покупки: </h1>
+                </div>
+            </div>
+            <div class="row table table-striped">
+                <table class="cart text-center ">
+                    <thead>
+                    <tr class="bg-secondary-subtle">
+                        <th>Изображение</th>
+                        <th>Товар</th>
+                        <th>Количество</th>
+                        <th>Удалить</th>
+                        <th>Стоимость</th>
+                        <th>Всего</th>
+                    </tr>
+                    </thead>
+                    <tbody class="cart-product text-center ">
+                    {% for item in cart %}
+                        {% with product=item.product %}
+                            <tr>
+                                <td>
+                                    <a href="{{ hobby.get_absolute_url }}">
+                                        <img src="
+                                {% if product.img %}
+                                    {{ product.img.url }}
+                                {% else %}
+                                    {% static "img/изображение_viber_2023-06-28_17-45-27-299.jpg" %}
+                                {% endif %}" width="100px" height="100px">
+                                    </a>
+                                </td>
+                                <td>{{ product.name }}</td>
+                                <td>{{ item.quantity }}</td>
+                                <td><a href="{% url "cart:cart_remove" product.id %}">Удалить</a></td>
+                                <td class="num">{{ item.price }} руб.</td>
+                                <td class="num">{{ item.total_price }} руб.</td>
+                            </tr>
+                        {% endwith %}
+                    {% endfor %}
+                    <tr class="total bg-secondary-subtle">
+                        <td colspan="4"></td>
+                        <td class="text-end text-danger">Итого к оплате:</td>
+
+                        <td class="num text-success">{{ cart.get_total_price }} руб.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <p class="text-right text-center text-uppercase mb-5 mt-5">
+                    <a href="/glav" class="btn btn-success btn-outline-warning col-3">Продолжить покупки</a>
+                    <a href="{% url "orders:order_create" %}" class="btn btn-success btn-outline-warning col-3">Оформить заказ</a>
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}

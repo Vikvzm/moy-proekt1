@@ -1,0 +1,20 @@
+.o_nas {
+    width: 905px;
+    padding: 20px;
+    background-color: #bfd1ec;
+    margin: 5% auto 20%;
+    /*margin: 30px 25% 30px ;*/
+
+    /*margin-left: 30%; !* Отступ слева *!*/
+    /*width: 40%; !* Ширина слоя *!*/
+
+}
+.o_nas h1{
+    font-size: 30px;
+    background-color: #6c757d;
+    color: white;
+}
+
+.o_nas h3{
+    text-align: justify; /* Выравнивание по ширине */
+}

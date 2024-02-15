@@ -1,0 +1,56 @@
+{% extends "hobby/index-base.html" %}
+{% load hobby_extras %}
+{% block title %}Поиск{% endblock %}
+{% block content %}
+    <section class="search">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    {% if "query" in request.GET %}
+                        <h1>Вы ищите "{{ cd.query }}"</h1>
+                        <h3>{{ total_results|ru_plural:"Найден,Найдено,Найдено" }} {{ total_results }} {{ total_results|ru_plural:"результат,результата,результатов" }}</h3>
+                        {% for result in results %}
+                            <div class="row table table-striped">
+                                <table class="search_tab">
+                                    <thead>
+                                    <tr class="bg-secondary-subtle text-center">
+                                        <th>Изображение</th>
+                                        <th>Товар</th>
+                                        <th>Стоимость</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="search_product text-center">
+                                    {% with post=result.object %}
+                                        <tr>
+                                            <td><a href="{% url 'hobby_working_detali' post.id %}"><img src="{{ post.img.url }}" width="70px" height="70px"></a></td>
+                                            <td><h4><a href="{% url 'hobby_working_detali' post.id %}">{{ post.name }}</a></h4></td>
+                                            <td><h4><a href="{% url 'hobby_working_detali' post.id %}">{{ post.price }}руб.</a></h4></td>
+                                        </tr>
+
+
+
+                                        {{ post.body|truncatechars_html:5 }}
+                                    {% endwith %}
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        {% empty %}
+                            <p>По вашему запросу нет результатов.</p>
+                        {% endfor %}
+                        <p><a href="/search" class="btn btn-success btn-outline-warning col-3">Искать снова</a></p>
+                    {% else %}
+                        <h1>Поиск композиции:</h1>
+                        <form action="." method="get">
+                            {{ form.as_p }}
+                            <input class="btn btn-success btn-outline-warning col-3" type="submit"  value="Поиск">
+                        </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

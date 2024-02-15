@@ -1,0 +1,30 @@
+{% extends "hobby/base.html" %}
+
+{% block title %}Список букетов{% endblock %}
+
+ {% block content %}
+<div id="main">
+			<div id="content" class="left">
+
+				<div class="projects">
+					<h3>Комозиции</h3>
+                    {% for hobby in hobbys %}
+					<div class="item">
+						<div class="image left">
+							<a href="#"><img src="{{ hobby.img.url }}" alt="" width="150px" height="150px"/></a>
+						</div>
+						<div class="text left">
+							<h4><a href="{{ hobby.get_url_hobby }}">{{ hobby.name}}</a></h4>
+                            <H4>{{ hobby.price }}</H4>
+						</div>
+
+						<div class="cl">&nbsp;</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="cl">&nbsp;</div>
+		</div>
+
+ {% endblock %}

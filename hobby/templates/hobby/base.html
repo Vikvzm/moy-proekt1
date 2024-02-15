@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'hobby/style.css' %}" type="text/css" media="all">
+</head>
+<body>
+
+<div class="shell">
+	<div class="border">
+
+		<div id="navigation">
+			<ul>
+			    <li><a href="/" class="active">Главная</a></li>
+			    <li><a href="/admin">Админ панель</a></li>
+
+			</ul>
+		</div>
+
+		{% block content %}{% endblock %}
+
+
+	</div>
+
+	<div id="footer">
+		<p class="copy right">Podarki_ot_Zoy &copy;  2023 </p>
+	</div>
+</div>
+
+</body>
+</html>
